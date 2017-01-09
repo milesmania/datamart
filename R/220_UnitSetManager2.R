@@ -170,9 +170,24 @@ uset.mass <- function(...) {
     sl=14.593903,
     slug=14.593903,
     lb=0.45359237,
-    mP=2.1765113*10^(-8)
+    mP=2.1765113*10^(-8),
+    tonnes=10^3,
+    tonne=10^3,
+    "troy ounce"=0.03110348,
+    oz=0.03110348
   )
   comment(ret) <- "kg"
+  ret
+}
+
+uset.time <- function(...) { 
+  ret <- c(
+    mi=60,
+    hr=3600,
+    day=86400,
+    yr=31536000
+  )
+  comment(ret) <- "sec"
   ret
 }
 
@@ -239,5 +254,6 @@ unitsetmanager <- function() datamart(
     resfunc(resource="Mass", fun=uset.mass),
     resfunc(resource="Area", fun=uset.area),
     resfunc(resource="Volume", fun=uset.volume), 
+    resfunc(resource="Time", fun=uset.time),  
     clss="UnitSetManager2"
 )
